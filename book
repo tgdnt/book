@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+action=$1
+shift
+
+[ "$1" = "usage" ] && {
+  echo "  Book:"
+  echo "    $TODO_SH book ITEM# DATE TIME DURATION"
+  echo "      create an event out of a todo item"
+  echo ""
+  exit
+}
+
+getTodo "$1"
+event_date=$(date -j -f "%Y-%m-%d" "+%m.%d" "$2")
+event_time=$3
+event_duration=$4
+
+$TODO_SH append "$1" "#booked"
+
+/usr/local/bin/khal new -a todos --alarms 30m "$event_date" "$event_time" "$event_duration" "$todo"
+vdirsyncer sync
