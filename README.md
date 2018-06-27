@@ -24,12 +24,3 @@ This script takes a date and time in `%Y-%m-%d %H:%M` and automatically
 converts it to `%m.%d`, which is what I use for Khal.
 
 This script automatically runs `vdirsyncer sync` to sync your calendar.
-
-Todo:
-
-- Implement a config file for variables such as datetime formats,
-location of Khal executable, options to sync with vdirsyncer or not, etc.
-- Check whether or not a todo has already been booked and allow
-user to cancel if already booked.
-- Check for scheduling conflicts and say something like
-"You are booked! Book anyway?"
