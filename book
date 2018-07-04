@@ -16,7 +16,7 @@ event_date=$(date -j -f "%Y-%m-%d" "+%m.%d" "$2")
 event_time=$3
 event_duration=$4
 
-$TODO_SH append "$1" "#booked"
+$TODO_SH append "$1" "#booked due:$2"
 
 /usr/local/bin/khal new -a todos --alarms 30m "$event_date" "$event_time" "$event_duration" "$todo"
 vdirsyncer sync
